@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<div id="store_header">
+  <h2 id="<%= @header %>"><%= @header %></h2>
+</div>
+
+<% cache @products do %>
+
+  <% @products.each do |product| %>
+    <%= cache product do %>
+
+      <div class="entry" id="<%= product.title %>_entry">
+
+        <h3>
+          <%= link_to product.title, controller: "products", action: "one", id: product.id %>
+        </h3>
+
+        <% if (product.image_url != nil) %>
+        <div id="product_img">
+            <%= image_tag(product.image_url) %>
+        </div>
+
+        <p id="description">
+          <p>
+          <%= truncate(sanitize(product.description), length: 210) %>
+          </p>
+        </p>
+        <% else %>
+        <p id="tabbed_description">
+          <%= sanitize(product.description) %>
+        </p>
+        <% end %>
+
+        <p id="category">
+          <strong>Category:</strong>
+          <%= product.prod_type %>
+        </p>
+
+        <div class="price_line">
+          <span class="price"><%= number_to_currency(product.price) %></span>
+          <%= button_to 'Add to Cart', line_items_path(product_id: product), remote: true %>
+        </div>
+
+      </div>
+
+    <% end %>
+  <% end %>
+
+<% end %>

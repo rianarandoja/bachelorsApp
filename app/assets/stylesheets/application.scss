@@ -1,0 +1,306 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body,
+body > p,
+body > ol,
+body > ul,
+body > td {
+  margin: 18px !important;
+}
+
+a:visited,
+a:hover {
+  text-decoration: none;
+  background-color: inherit;
+}
+
+h1 {
+  padding-bottom: 1em;
+}
+
+#banner {
+  position: relative;
+  min-height: 60px;
+  margin-top: 2%;
+  background: white;
+  opacity: 0.7;
+  padding: 10px;
+  border-bottom: none;
+  font: small-caps 40px/40px 'Times New Roman', serif;
+  color: #9399a0;
+  text-align: center;
+}
+
+#notice {
+  color: #000 !important;
+  margin-bottom: 2em;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+#notice:empty {
+  display: none;
+}
+
+#white_bar {
+  background: white;
+  display: flex;
+  height: 15%;
+  width: 100%;
+  color: white;
+  height: 20px;
+}
+
+#column2 {
+  background: white;
+}
+
+#Login,
+#Register {
+  margin-left: 5%;
+}
+#register_button {
+  margin-left: 32%;
+}
+#login_button {
+  margin-left: 30%;
+}
+
+.columns {
+  background: #9399a0; // for menu, goes all the way from left to right
+  display: flex;
+  border-radius: 8px;
+
+  #main {
+    padding: 1em;
+    background: white;
+    flex: 1;
+    max-width: 75%;
+  }
+
+  #menu {
+    padding: 0em 0em 1em 0em;
+    margin-left: 15%;
+    max-height: 70px;
+    margin: auto;
+
+    ul {
+      li {
+        list-style: none;
+        display: inline;
+        margin: 0;
+        padding: 0;
+
+        a {
+          text-decoration: none;
+          color: white;
+          font-size: medium;
+          padding: 10px 40px 10px 20px;
+        }
+
+        a:hover {
+          background-color: #8a9096;
+        }
+      }
+    }
+  }
+
+  #side {
+    padding: 1em 2em;
+    background: #a6adb5;
+    min-width: 22%;
+    max-width: 22%;
+    border-radius: 8px;
+    min-height: 360px;
+
+    form,
+    div {
+      display: inline;
+    }
+
+    table tr td {
+      padding: 5px;
+      vertical-align: top;
+    }
+
+    #cart {
+      #cart_header {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10%;
+        margin-top: 10%;
+        border-bottom: none;
+        color: #a6adb5;
+      }
+
+      color: white;
+
+      #cart_title {
+        padding-left: 10%;
+      }
+
+      table {
+        width: 100%;
+        font-size: smaller;
+        margin-top: 30px;
+        border-top: 1px groove white;
+        border-bottom: 1px groove white;
+        margin-bottom: 30px;
+
+        tr {
+          td {
+            border-radius: 4px;
+          }
+        }
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+
+      input {
+        font-size: small;
+        float: right;
+        background-color: white;
+        color: #67717c;
+        border: none;
+        margin: 4px 2px;
+        text-decoration: none;
+        display: inline-block;
+        padding: 4px 8px;
+      }
+
+      input:hover {
+        background-color: #e2e2e2;
+      }
+
+      #checkout_button {
+        padding: 10px 32px;
+        margin: 4px 2px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  #columns {
+    flex-direction: column-reverse;
+  }
+}
+
+@media all and (max-width: 500px) {
+  #banner {
+    height: 1em;
+  }
+
+  #banner .title {
+    display: none;
+  }
+}
+
+.depot_form {
+  // new order
+
+  h3 {
+    margin-top: 5%;
+    margin-bottom: 4%;
+    margin-left: 3%;
+  }
+  background: white;
+
+  form {
+    margin-left: 5%;
+
+    div {
+      padding-bottom: 1%;
+    }
+
+    label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-right: 0.6em;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
+    }
+
+    select,
+    textarea,
+    input {
+      margin-left: 0.5em;
+    }
+
+    .submit {
+      margin-left: 4em;
+      float: right;
+    }
+
+    br {
+      display: none;
+    }
+  }
+}
+
+.user_form {
+  h3 {
+    margin-top: 5%;
+    margin-bottom: 4%;
+    margin-left: 3%;
+  }
+  background: white;
+
+  form {
+    margin-left: 5%;
+
+    div {
+      margin-bottom: 3%;
+    }
+
+    label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-right: 0.6em;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
+    }
+
+    select,
+    textarea,
+    input {
+      margin-left: 0.5em;
+    }
+
+    .submit {
+      margin-left: 4em;
+      float: right;
+    }
+
+    br {
+      display: none;
+    }
+  }
+}
+
+.footer {
+  height: 40px;
+  background-color: white;
+  color: black;
+  text-align: center;
+}

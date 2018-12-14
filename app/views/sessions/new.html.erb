@@ -1,0 +1,18 @@
+<div id="login_header"><h2 id="Login">Login</h2></div>
+<div class="user_form">
+  <p id="notice"><%= notice %></p>
+    <h3></h3>
+  <%= form_tag do %>
+      <div>
+        <%= label_tag :name, 'Name:' %>
+        <%= text_field_tag :name, params[:name] %>
+      </div>
+      <div>
+        <%= label_tag :password, 'Password:' %>
+        <%= password_field_tag :password, params[:password] %>
+      </div>
+      <div id="login_button">
+        <%= submit_tag "Login" %>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>ST Online Store</title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => 'reload' %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => 'reload' %>
+    <%= csrf_meta_tags %>
+
+</head>
+
+<body class="<%= controller.controller_name %>">
+
+  <div id="banner">
+    ST ONLINE STORE
+  </div>
+
+  <div class="columns">
+    <div id="menu">
+      <ul>
+        <li><%= link_to 'Admin', admin_path %></li>
+        <% if session[:user_id] %>
+            <!-- <li class="admin_menu"><%= link_to 'Orders', orders_path %></li> -->
+            <li class="admin_menu"><%= link_to 'Products', products_path %></li>
+            <!-- <li class="admin_menu"><%= link_to 'Users', users_path %></li> -->
+            <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to 'Login', login_path %></li>
+            <li><%= link_to 'Register', new_user_path %></li>
+        <% end %>
+
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="columns" id="white_bar">
+  </div>
+
+  <div class="columns" id="column2">
+
+    <div id="side">
+      <div id="cart">
+        <% if @cart and not session[:user_id]%>
+          <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= render @cart %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
+
+</body>
+
+<div class="footer">
+  <p><strong>Powered by UT</strong></p>
+</div>
+
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>ST Online Store</title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => 'reload' %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => 'reload' %>
+    <%= csrf_meta_tags %>
+
+</head>
+
+<body class="<%= controller.controller_name %>">
+
+  <div id="banner">
+    ST ONLINE STORE
+  </div>
+
+  <div class="columns">
+    <div id="menu">
+      <ul>
+
+        <li><a href="/">Home</a></li>
+        <li><%= link_to "Sunglasses", controller: "store", action: "filterProducts", sort: "Sunglasses" %></li>
+        <li><%= link_to "Books", controller: "store", action: "filterProducts", sort: "Books" %></li>
+        <li><%= link_to "Other", controller: "store", action: "filterProducts", sort: "Other" %></li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="columns" id="white_bar">
+  </div>
+
+  <div class="columns" id="column2">
+
+    <div id="side">
+      <div id="cart">
+        <% if @cart %>
+          <%= render @cart %>
+        <% end %>
+      </div>
+    </div>
+
+    <div id="main">
+      <%= yield %>
+    </div>
+  </div>
+
+</body>
+
+<div class="footer">
+  <p><strong>Powered by UT</strong></p>
+</div>
+
+
+</html>

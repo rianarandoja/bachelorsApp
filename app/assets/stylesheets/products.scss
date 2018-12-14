@@ -1,0 +1,138 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.products {
+  .one_product_page {
+    margin-left: 8%;
+    margin-right: 7%;
+    margin-top: 7%;
+
+    img {
+      width: 40%;
+      float: right;
+      height: auto;
+      margin-top: 3%;
+      margin-left: 7%;
+    }
+
+    h2 {
+      font-size: 150%;
+      margin-bottom: 7%;
+    }
+
+    input {
+      float: left;
+      margin-left: 45%;
+    }
+  }
+
+  .back_button {
+    margin-left: 50%;
+    a {
+      font-size: small;
+    }
+  }
+
+  .product_header {
+    margin-left: 5%;
+  }
+
+  .products_column {
+    margin-left: 10%;
+  }
+
+  #new_product_div {
+    margin-left: 70%;
+    a {
+      font-size: small;
+    }
+  }
+
+  .prod_categ {
+    font-weight: bold;
+    font-size: smaller;
+  }
+
+  .categ_div {
+    margin-top: 2%;
+  }
+
+  table tr td {
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .list_image {
+    width: 100px;
+  }
+
+  .list_description {
+    width: 60%;
+
+    a {
+      font-size: 110%;
+    }
+
+    dl {
+      margin: 0;
+    }
+
+    dt {
+      color: #244;
+      font-weight: bold;
+      font-size: larger;
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+
+  .list_actions {
+    font-size: x-small;
+    text-align: right;
+    padding-left: 1em;
+    a {
+      font-size: small;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    font-size: medium;
+    padding: 0;
+  }
+
+  #store_header {
+    border-bottom: 3px dotted black;
+  }
+
+  .entry {
+    p,
+    div.price_line {
+      margin-left: 20%;
+      margin-top: 0.5em;
+      margin-bottom: 0.8em;
+
+      form,
+      div {
+        display: inline;
+      }
+    }
+
+    h3 {
+      font-size: 120%;
+      font-family: sans-serif;
+      margin-left: 17%;
+      margin-bottom: 2px;
+      color: black;
+    }
+
+    .price {
+      color: black;
+      font-weight: bold;
+      margin-right: 3em;
+      padding-bottom: 5%;
+    }
+  }
+}

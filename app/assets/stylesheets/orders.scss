@@ -1,0 +1,41 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.orders_header {
+  margin-left: 5%;
+}
+
+.orders_column {
+  margin-left: 10%;
+  td {
+    padding: 2%;
+    min-width: 110px;
+    text-align: center;
+  }
+  tr {
+    padding: 2%;
+  }
+}
+
+#place_order {
+  margin-left: 35%;
+}
+
+#check_out {
+  font-size: 120%;
+  margin-left: 10%;
+  td {
+    min-width: 60px;
+  }
+}
+
+#order_receipt {
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+#order_page {
+  padding-bottom: 1.5em;
+  margin-left: 4%;
+}
