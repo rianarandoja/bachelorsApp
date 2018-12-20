@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
+
   skip_before_action :authorize
   layout 'admin_application'
 
@@ -19,4 +22,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to admin_url
   end
+
 end

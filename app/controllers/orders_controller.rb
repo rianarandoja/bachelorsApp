@@ -1,10 +1,13 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
-  skip_before_action :authorize, only: [:new, :create, :one]
+
+  skip_before_action :authorize, only: %i[new create one]
 
   include CurrentCart
-  before_action :set_cart, only: [:new, :create]
+  before_action :set_cart, only: %i[new create]
   before_action :ensure_cart_isnt_empty, only: :new
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: %i[show edit update destroy]
 
   def index
     @orders = Order.all
@@ -45,7 +48,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        format.html { redirect_to action: "one", id: @order.id }
+        format.html { redirect_to action: 'one', id: @order.id }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
@@ -77,9 +80,7 @@ class OrdersController < ApplicationController
   private
 
   def ensure_cart_isnt_empty
-    if @cart.line_items.empty?
-      redirect_to store_index_url, notice: 'Your cart is empty'
-    end
+    redirect_to store_index_url, notice: 'Your cart is empty' if @cart.line_items.empty?
   end
 
   def set_order
@@ -89,4 +90,5 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:name, :address, :email, :pay_type)
   end
+
 end

@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class StoreController < ApplicationController
+
   skip_before_action :authorize
 
   include CurrentCart
@@ -14,11 +17,11 @@ class StoreController < ApplicationController
 
   def filterProducts
     @header = params[:sort]
-    if @header == 'Other'
-      @products = Product.all.select { |product| product.prod_type == 'Sunglasses' || product.prod_type == 'Other'}
-    else
-      @products = Product.all.select { |product| product.prod_type == @header }
-    end
+    @products = if @header == 'Other'
+                  Product.all.select { |product| product.prod_type == 'Sunglasses' || product.prod_type == 'Other' }
+                else
+                  Product.all.select { |product| product.prod_type == @header }
+                end
   end
 
 end

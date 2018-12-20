@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class LineItemsController < ApplicationController
-  skip_before_action :authorize, only: [:create, :decrease, :increase, :destroy]
+
+  skip_before_action :authorize, only: %i[create decrease increase destroy]
 
   include CurrentCart
   before_action :set_cart, only: [:create]
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: %i[show edit update destroy]
 
   def index
     @line_items = LineItem.all
@@ -29,7 +32,7 @@ class LineItemsController < ApplicationController
         format.js   { @current_item = @line_item }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
@@ -45,7 +48,7 @@ class LineItemsController < ApplicationController
         format.js   { @current_item = @line_item }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { render action: 'edit' }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
@@ -96,4 +99,5 @@ class LineItemsController < ApplicationController
   def line_item_params
     params.require(:line_item).permit(:product_id)
   end
+
 end

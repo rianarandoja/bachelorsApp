@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_product, only: %i[show edit update destroy]
   skip_before_action :authorize, only: :one
   layout 'admin_application', except: :one
 
@@ -55,9 +58,9 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
 
-        # @products = Product.all
-        # ActionCable.server.broadcast 'products',
-          # html: render_to_string('store/index', layout: false)
+      # @products = Product.all
+      # ActionCable.server.broadcast 'products',
+      # html: render_to_string('store/index', layout: false)
       else
         format.html { render :edit }
         format.json { render json: @product.errors, status: :unprocessable_entity }
@@ -66,14 +69,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if @product.destroy
-      message = 'Product was successfully destroyed.'
-    else
-      message = 'Product could not be deleted, because is added to cart.'
-    end
+    message = if @product.destroy
+                'Product was successfully destroyed.'
+              else
+                'Product could not be deleted, because is added to cart.'
+              end
 
     respond_to do |format|
-      format.html { redirect_to products_url, :notice => message }
+      format.html { redirect_to products_url, notice: message }
       format.json { head :no_content }
     end
   end
@@ -87,4 +90,5 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:title, :description, :image_url, :price, :prod_type)
   end
+
 end
