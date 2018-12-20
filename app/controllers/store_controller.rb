@@ -15,7 +15,7 @@ class StoreController < ApplicationController
     @products = Product.order(:title)
   end
 
-  def filterProducts
+  def filter_products
     @header = params[:sort]
     @products = if @header == 'Other'
                   Product.all.select { |product| product.prod_type == 'Sunglasses' || product.prod_type == 'Other' }

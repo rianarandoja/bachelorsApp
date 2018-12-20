@@ -1,0 +1,43 @@
+AllCops:
+  Exclude:
+    - bin/**
+    - db/schema.rb
+  TargetRubyVersion: 2.5
+
+Layout/EmptyLinesAroundClassBody:
+  EnforcedStyle: empty_lines_except_namespace
+
+Metrics/AbcSize:
+  Exclude:
+    - app/controllers/*
+
+Metrics/BlockLength:
+  Exclude:
+    - app/views/products/who_bought.atom.builder
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 15
+
+Rails:
+  Enabled: true
+
+Style/GuardClause:
+  Exclude:
+    - app/models/product.rb
+    - app/controllers/products_controller.rb
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: ()
+    '%i': '[]'
+    '%r': '{}'
+    '%w': '[]'

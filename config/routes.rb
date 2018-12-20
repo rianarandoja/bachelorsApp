@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get 'admin' => 'admin#index'
   get '/products/show/' => 'products#one'
-  get '/store/filter' => 'store#filterProducts'
+  get '/store/filter' => 'store#filter_products'
   get '/orders/o' => 'orders#one'
 
   controller :sessions do
