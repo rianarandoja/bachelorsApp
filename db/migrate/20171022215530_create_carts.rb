@@ -1,8 +1,9 @@
-class CreateCarts < ActiveRecord::Migration[5.0]
-  def change
-    create_table :carts do |t|
+# frozen_string_literal: true
 
-      t.timestamps
-    end
+class CreateCarts < ActiveRecord::Migration[5.0]
+
+  def change
+    create_table :carts, &:timestamps
   end
+
 end

@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class CreateLineItems < ActiveRecord::Migration[5.0]
+
   def change
     create_table :line_items do |t|
       t.references :product, foreign_key: false
@@ -7,4 +10,5 @@ class CreateLineItems < ActiveRecord::Migration[5.0]
       t.timestamps
     end
   end
+
 end

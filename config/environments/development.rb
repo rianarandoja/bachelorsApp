@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -55,5 +57,4 @@ Rails.application.configure do
   config.action_cable.disable_request_forgery_protection = true
 
   # config.action_cable.url = "ws://localhost:5000/cable"
-
 end

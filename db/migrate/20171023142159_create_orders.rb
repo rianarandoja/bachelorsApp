@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 class CreateOrders < ActiveRecord::Migration[5.0]
+
   def change
     create_table :orders do |t|
       t.string :name
@@ -9,4 +12,5 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.timestamps
     end
   end
+
 end

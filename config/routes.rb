@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   # Serve websocket cable requests in-process
   # mount ActionCable.server => '/cable'
 
@@ -8,12 +9,12 @@ Rails.application.routes.draw do
   get 'info/index'
   get 'store/index'
 
-  get "all_users_path" => "users#index"
+  get 'all_users_path' => 'users#index'
 
   get 'admin' => 'admin#index'
-  get "/products/show/" => "products#one"
-  get "/store/filter" => "store#filterProducts"
-  get "/orders/o" => "orders#one"
+  get '/products/show/' => 'products#one'
+  get '/store/filter' => 'store#filterProducts'
+  get '/orders/o' => 'orders#one'
 
   controller :sessions do
     get 'login' => :new
@@ -35,7 +36,4 @@ Rails.application.routes.draw do
     put 'decrease', on: :member
     put 'increase', on: :member
   end
-
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
