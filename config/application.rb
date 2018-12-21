@@ -16,5 +16,17 @@ module StoreApp
     # -- all .rb files in that directory are automatically loaded.
     config.assets.initialize_on_precompile = false
 
+    config.generators do |g|
+      g.template_engine :slim
+      g.helper false
+      g.assets false
+      g.routing_specs false
+      g.view_specs false
+      g.controller_specs false
+      g.request_specs false
+      g.stylesheets false
+      g.javascripts false
+    end
+
   end
 end
