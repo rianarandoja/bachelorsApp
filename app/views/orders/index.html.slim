@@ -1,0 +1,23 @@
+p#notice
+  = notice
+h1#Orders.orders_header Orders
+.orders_column
+  table
+    thead
+      tr
+        th Id
+        th Name
+        th Address
+        th Email
+        th Pay type
+        th
+    tbody
+      - @orders.each do |order|
+        tr
+          td = order.id
+          td = order.name
+          td = order.address
+          td = order.email
+          td = order.pay_type
+          td = link_to 'Show', order
+  br

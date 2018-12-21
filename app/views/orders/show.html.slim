@@ -1,0 +1,35 @@
+p#notice
+  = notice
+#order_receipt
+  h3
+    |  Order: 
+    = @order.id
+  p
+    strong Name: 
+    = @order.name
+  p
+    strong Address: 
+    = @order.address
+  p
+    strong Email: 
+    = @order.email
+  p
+    strong Pay type: 
+    = @order.pay_type
+  table#check_out
+    - @line_items.each do |item|
+      tr
+        - @product = Product.find(item.product_id)
+        td
+          = item.quantity
+          | ×
+        td = @product.title
+        td = number_to_currency(item.total_price)
+    tr.total_line
+      td[colspan="2"]
+        strong Total:
+      td.total_cell
+        strong
+          = number_to_currency(@sum)
+  p
+    = link_to 'Back', orders_path
