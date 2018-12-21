@@ -1,0 +1,20 @@
+p#notice
+  = notice
+.one_product_page
+  p
+    - if (@product.image_url != nil)
+      = image_tag(@product.image_url, class: 'list_image')
+  p
+
+  h2
+    = @product.title
+  p
+    strong Description: 
+    = strip_tags(@product.description)
+  p
+    strong Type: 
+    = @product.prod_type
+  p
+    strong Price: 
+    = number_to_currency(@product.price)
+  = button_to 'Add to Cart', line_items_path(product_id: @product), remote: true

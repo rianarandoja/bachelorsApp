@@ -1,0 +1,22 @@
+p#notice
+  = notice
+.products_column
+  p
+    - if (@product.image_url != nil)
+      = image_tag(@product.image_url, class: 'list_image')
+  p
+    strong Title: 
+    = @product.title
+  p
+    strong Description: 
+    = strip_tags(@product.description)
+  p
+    strong Type: 
+    = @product.prod_type
+  p
+    strong Price: 
+    = number_to_currency(@product.price)
+  .back_button
+    = link_to 'Edit', edit_product_path(@product)
+    |  | 
+    = link_to 'Back', products_path

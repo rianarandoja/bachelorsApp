@@ -29,28 +29,18 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to products_url }
-        format.js
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.save
+      redirect_to products_url
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
-      else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.update(product_params)
+      redirect_to @product, notice: 'Product was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -61,10 +51,7 @@ class ProductsController < ApplicationController
                 'Product could not be deleted, because is added to cart.'
               end
 
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: message }
-      format.json { head :no_content }
-    end
+    redirect_to products_url, notice: message
   end
 
   private
