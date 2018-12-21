@@ -2,11 +2,11 @@
 
 class AdminController < ApplicationController
 
-  skip_before_action :authorize, only: :index
+  skip_before_action :authorize
+  layout 'admin_application'
+
   def index
-    render layout: 'admin_application'
-    # @total_orders = Order.count
-    # @username = User.find_by(id: session[:user_id]).name
+    @user = User.find_by(id: session[:user_id])
   end
 
 end

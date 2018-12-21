@@ -3,12 +3,11 @@
 <h2 class="admin_header" id="Admin">Welcome to Admin Site</h2>
 
 <p class="admin_header">
-  <% user = User.find_by(id: session[:user_id]) %>
-  <% if user %>
-  <p id="<%= user.name %>">
-    Logged in user: <%= user.name %>
-    <%= link_to 'Edit', edit_user_path(user) %>
-    <%= link_to 'Delete', user, method: :delete %>
+  <% if @user %>
+    <p>
+      Logged in user: <%= @user.name %>
+      <%= link_to 'Edit', edit_user_path(@user) %>
+      <%= link_to 'Delete', @user, method: :delete %>
+    </p>
   <% end %>
-  </p>
 </p>

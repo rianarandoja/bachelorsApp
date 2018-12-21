@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # Serve websocket cable requests in-process
-  # mount ActionCable.server => '/cable'
-
   root 'store#home', as: 'store_home'
 
-  get 'info/index'
   get 'store/index'
 
   get 'all_users_path' => 'users#index'
@@ -27,10 +23,7 @@ Rails.application.routes.draw do
   resources :orders
   resources :line_items
   resources :carts
-
-  resources :products do
-    get :who_bought, on: :member
-  end
+  resources :products
 
   resources :line_items do
     put 'decrease', on: :member
