@@ -20,4 +20,8 @@ class Order < ApplicationRecord
     end
   end
 
+  def summa
+    line_items.map(&:total_price).map(&:to_f).reduce(:+)
+  end
+
 end

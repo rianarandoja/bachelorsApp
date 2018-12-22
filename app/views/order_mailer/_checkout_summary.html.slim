@@ -1,0 +1,10 @@
+table style='text-align: center; padding-left: 2%;'
+  thead
+    tr
+      th Quantity
+      th Description
+      th Price
+  tbody
+    - order.line_items.each do |item|
+      tr
+        = render 'line_item', line_item: item
