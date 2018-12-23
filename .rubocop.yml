@@ -13,7 +13,6 @@ Metrics/AbcSize:
 
 Metrics/BlockLength:
   Exclude:
-    - app/views/products/who_bought.atom.builder
     - spec/*/*/*
     - config/environments/*
     - Guardfile

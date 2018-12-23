@@ -18,7 +18,8 @@ RSpec.describe OrderMailer, type: :mailer do
     it 'renders the body' do
       expect(mail.body.encoded).to have_content("Your order number ##{order.id} has been received")
       expect(mail.body.encoded).to have_content(order.name)
-      expect(mail.body.encoded).to have_content(line_item.product_title)
+      expect(mail.body.encoded).to have_content(line_item.total_price)
+      expect(mail.body.encoded).to have_content(line_item2.product_title)
       expect(mail.body.encoded).to have_content(order.summa)
     end
   end

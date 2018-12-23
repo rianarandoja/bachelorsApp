@@ -1,3 +1,4 @@
 /log/*
 /tmp/*
 spec/examples.txt
+config/application.yml
