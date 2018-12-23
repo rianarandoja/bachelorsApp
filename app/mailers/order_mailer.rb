@@ -6,6 +6,9 @@ class OrderMailer < ApplicationMailer
 
   def received(order)
     @order = order
+    order.generate_attachment
+    title = order.attachment_title
+    attachments[title] = File.read(Rails.root.join('pdf', title))
     mail to: order.email, subject: 'Order received'
   end
 

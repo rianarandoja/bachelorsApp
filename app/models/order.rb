@@ -24,4 +24,16 @@ class Order < ApplicationRecord
     line_items.map(&:total_price).map(&:to_f).reduce(:+)
   end
 
+  def pdf_generator
+    PdfGenerator.new(order: self)
+  end
+
+  def generate_attachment
+    pdf_generator.perform
+  end
+
+  def attachment_title
+    "Order_#{id}.pdf"
+  end
+
 end

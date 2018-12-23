@@ -1,0 +1,18 @@
+table
+  tbody
+    tr
+      td Name:
+      td = order.name
+    tr
+      td Address:
+      td = order.address
+    tr
+      td Email:
+      td = order.email
+    tr
+      td Pay type:
+      td = order.pay_type
+    tr
+      td Date:
+      td = l(order.created_at, format: :long)
+

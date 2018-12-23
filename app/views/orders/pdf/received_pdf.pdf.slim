@@ -1,0 +1,25 @@
+| <!doctype html> 
+html
+  head
+    = wicked_pdf_stylesheet_link_tag 'pdf'
+  body
+    #header
+      h1
+        = "Order Summary ##{@order.id}"
+    #content
+      div#order_details
+        | Order details:
+        = render 'orders/pdf/order_details', order: @order
+      div#checkout_summary
+        div
+          | Checkout summary:
+        = render 'orders/pdf/checkout_summary', order: @order
+      div#total
+        strong Total sum: 
+        = number_to_currency(@order.summa)
+      div#footer
+        | ST Online Store
+        br
+        | smallstonlinestore@gmail.com
+        br
+        | Tartu

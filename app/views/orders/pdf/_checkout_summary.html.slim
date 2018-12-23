@@ -1,0 +1,10 @@
+table
+  thead
+    tr
+      th Quantity
+      th Description
+      th Price
+  tbody
+    - order.line_items.each do |item|
+      tr
+        = render 'orders/pdf/line_item', line_item: item
